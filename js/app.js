@@ -42,7 +42,7 @@ class Player extends GameElement {
 
     //update方法更新位置
     update() {
-        for(i = 0; i < allEnemies.length; i++) {
+        for(let i = 0; i < allEnemies.length; i++) {
             const eneLocX = Math.ceil(allEnemies[i].x);
             if (eneLocX >= this.x - 90 && eneLocX <= this.x + 80 && this.y === allEnemies[i].y) {
                 this.x = 200;
