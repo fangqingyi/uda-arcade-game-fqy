@@ -9,11 +9,12 @@ class GameElement {
 // 这是一个应用到每个实例的类-enemy
 class Enemy extends GameElement {
     constructor(enemyNumber){
-    // enemy的图片/sprite已经用一个帮助程序来加载了
-    this.sprite = 'images/enemy-bug.png';
-    this.x = Math.random()*300 + 5;
-    this.y = enemyNumber === 1 ? 55 : (enemyNumber === 2 ? 140 : 255);
-    this.speed = 0;
+        super();
+        // enemy的图片/sprite已经用一个帮助程序来加载了
+        this.sprite = 'images/enemy-bug.png';
+        this.x = Math.random()*300 + 5;
+        this.y = enemyNumber === 1 ? 55 : (enemyNumber === 2 ? 140 : 255);
+        this.speed = 0;
     }
 
 // 更新enemy的位置，用一个方法，参数dt，作为时间增量
@@ -33,6 +34,7 @@ class Enemy extends GameElement {
 class Player extends GameElement {
     //定义玩家初始位置
     constructor() {
+        super();
         this.x = 200;
         this.y = 395;
         this.sprite = 'images/char-boy.png';
