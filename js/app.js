@@ -30,11 +30,45 @@ class Enemy extends GameElement {
 
 
 // 定义一个player类，具有： update(), render() ，handleInput()方法
-var Player = function() {
+class Player extends GameElement {
     //定义玩家初始位置
-    this.x = 200;
-    this.y = 395;
-    this.sprite = 'images/char-boy.png';
+    constructor() {
+        this.x = 200;
+        this.y = 395;
+        this.sprite = 'images/char-boy.png';
+    }
+
+    //update方法更新位置
+    update() {
+        for(i = 0; i < allEnemies.length; i++) {
+            const eneLocX = Math.ceil(allEnemies[i].x);
+            if (eneLocX >= this.x - 90 && eneLocX <= this.x + 80 && this.y === allEnemies[i].y) {
+                this.x = 200;
+                this.y = 395;
+            }
+        }
+        // 游戏结束时的位置更新
+        if (this.y === -30) {
+            setTimeout(() => {
+                this.x = 200;
+                this.y = 395;
+            }, 1000);
+        }
+    }
+
+    //render方法可以继承，定义handleInput方法
+    handleInput(key) {
+        if (key === 'up') {
+            this.y = this.y === -30 ? this.y : this.y - 85;
+            this.update();
+        } else if (key === 'down') {
+            this.y = this.y === 395 ? this.y : this.y + 85;
+        } else if (key === 'right') {
+            this.x = this.x === 400 ? 0 : this.x + 100;
+        } else if (key === 'left') {
+            this.x = this.x === 0 ? 400 : this.x - 100; 
+        }
+    }
 };
 
 //实例化对象，把所有enemy对象放在allEnemies数组中，
