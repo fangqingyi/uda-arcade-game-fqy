@@ -1,7 +1,14 @@
 // Enemies our player must avoid
+//  定义一个一般的游戏元素GameElement
+class GameElement {
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
 var Enemy = function() {
     // 这是一个应用到每个实例的类-enemy
-
+    
     // enemy的图片/sprite已经用一个帮助程序来加载了
     this.sprite = 'images/enemy-bug.png';
 };
