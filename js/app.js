@@ -72,7 +72,10 @@ class Player extends GameElement {
 };
 
 //实例化对象，把所有enemy对象放在allEnemies数组中，
+const allEnemies = [new Enemy(3), new Enemy(2), new Enemy(1),
+ new Enemy(1), new Enemy(2)];
 //实例一个player对象，
+const player = new Player();
 
 // 监听按键，发送到player的handleInput（）方法，这个不用改
 document.addEventListener('keyup', function(e) {
